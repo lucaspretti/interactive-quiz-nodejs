@@ -25,15 +25,14 @@ socket.on('updatePlayerLobby', function(data){
         var playersCardDeck = document.getElementById('players'); 
 
 
-        var playerCard = `<div class="col mb-4">
+        var playerCard = `<div class="col mb-3">
                             <div class="card h-100">
                             <img src="https://api.adorable.io/avatars/300/${data[i].name}.png" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">${data[i].name}</h5>
-                                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <h1 class="card-title">${data[i].name}</h1>
                             </div>
                             </div>
-                        </div>`
+                        </div>`;
 
 
         playersCardDeck.insertAdjacentHTML('afterbegin', playerCard );
