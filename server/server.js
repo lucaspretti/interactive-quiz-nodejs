@@ -202,6 +202,9 @@ io.on('connection', (socket) => {
                     var playersInGame = players.getPlayers(hostId);//Gets remaining players in game
 
                     io.to(pin).emit('updatePlayerLobby', playersInGame);//Sends data to host to update screen
+                    console.log('Sends data to host to update screen');
+                    console.log(playersInGame);
+                    
                     socket.leave(pin); //Player is leaving the room
             
                 }
