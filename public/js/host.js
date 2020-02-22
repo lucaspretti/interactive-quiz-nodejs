@@ -34,6 +34,8 @@ socket.on('updatePlayerLobby', function(data){
                             </div>
                         </div>`;
 
+                        
+
 
         playersCardDeck.insertAdjacentHTML('afterbegin', playerCard );
         console.log(data[i].name);
