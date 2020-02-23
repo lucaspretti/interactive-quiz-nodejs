@@ -37,7 +37,6 @@
             </div>
             <div class="ce-example__output">
                 <pre class="ce-example__output-content" id="output"></pre>
-
             </div>
         </div>
 
@@ -236,24 +235,24 @@
                             level: 2
                         }
                     },
-                    // {
-                    //     type: "header",
-                    //     data: {
-                    //         text: "Key features",
-                    //         level: 3
-                    //     }
-                    // },
-                    // {
-                    //     type: 'list',
-                    //     data: {
-                    //         items: [
-                    //             'It is a block-styled editor',
-                    //             'It returns clean data output in JSON',
-                    //             'Designed to be extendable and pluggable with a simple API',
-                    //         ],
-                    //         style: 'unordered'
-                    //     }
-                    // },
+                    {
+                        type: "header",
+                        data: {
+                            text: "Key features",
+                            level: 3
+                        }
+                    },
+                    {
+                        type: 'list',
+                        data: {
+                            items: [
+                                'It is a block-styled editor',
+                                'It returns clean data output in JSON',
+                                'Designed to be extendable and pluggable with a simple API',
+                            ],
+                            style: 'unordered'
+                        }
+                    },
                     // {
                     //     type: "header",
                     //     data: {
@@ -436,6 +435,7 @@
 
 
                 // var rawHTML = document.getElementById('editorjs').innerHTML;
+                var addToField = document.getElementById('q1').value = articleHTML;
                 // console.log(rawHTML);
 
             });
