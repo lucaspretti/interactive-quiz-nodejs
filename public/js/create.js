@@ -26,9 +26,11 @@ socket.on('gameNamesData', function (data) {
                             <div class="card text-center">
                             <div class="card-header">
                                 Featured
-                                <a  href="#" 
-                                  type="button" data-toggle="modal" data-target="#exampleModal"
-                                    class="close" 
+                                <a href="#" 
+                                  type="button" data-toggle="modal" data-target="#deleteQuizModal"
+                                    class="close"  
+                                    data-quiz-id="${data[key].id}"
+                                    data-quiz-title="${data[key].name}"
                                     aria-label="Delete">
                                     <span aria-hidden="true">&times;</span>
                                 </a>
@@ -40,7 +42,6 @@ socket.on('gameNamesData', function (data) {
                                 <h5 class="card-title">${data[key].name}</h5>
                                 <p class="card-text">${data[key].description}</p>
                                 <a href="#" onclick="startGame('${data[key].id}')" class="btn btn-primary">Start Quiz</a>
-                                <a href="#" onclick="deleteQuizFromDB('${data[key].id}')" class="btn btn-danger">Delete Quiz</a>
                             </div>
                             <div class="card-footer text-muted">
                                 2 days ago
@@ -48,7 +49,7 @@ socket.on('gameNamesData', function (data) {
                             </div>  
                         </div>
                         `
-    
+
             playersCardDeck.insertAdjacentHTML('afterbegin', gameListItem); 
             // console.log(i);
 
@@ -64,8 +65,7 @@ function startGame(data) {
 
 
 function deleteQuizFromDB(quiz) {
-    console.log('QUIZ ID :' + quiz);
-    
+    // console.log('QUIZ ID :' + quiz);
     socket.emit('deleteQuiz', quiz);
 }
 
@@ -75,10 +75,13 @@ $('#deleteQuizModal').on('show.bs.modal', function (event) {
     console.log('deleteQuizModal openend');
     
     var button = $(event.relatedTarget) // Button that triggered the modal
-    var recipient = button.data('whatever') // Extract info from data-* attributes
+    var quizId = button.data('quiz-id') // Extract info from data-* attributes
+    var quizTitle = button.data('quiz-title') // Extract info from data-* attributes
     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
     var modal = $(this)
-    modal.find('.modal-title').text('New message to ' + recipient)
-    modal.find('.modal-body input').val(recipient)
+    // modal.find('.modal-title').text('New message to ' + recipient)
+    modal.find('#quizTitle').text(quizTitle);
+    modal.find('#deleteQuizFinalBtn').attr('onClick', 'deleteQuizFromDB(' + quizId + ')');
+    // modal.find('.modal-body input').val(recipient)
   })
