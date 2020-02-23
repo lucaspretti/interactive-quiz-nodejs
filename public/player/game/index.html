@@ -10,34 +10,34 @@
     <link rel="stylesheet" href="../../css/playerGameView.css">
 </head>
 
-<body>
+<body class="d-flex justify-content-center vh-100 flex-wrap">
     <div id="stats">
         <h4 id="nameText">Name: </h4>
         <h4 id="scoreText">Score: </h4>
         <h4 id="rankText"></h4>
     </div>
     <h2 id="message"></h2>
-    <div id="buttonWrapper" class="container">
-        <div class="row">
+    <div id="buttonWrapper" class="container-fluid">
+        <div class="row no-gutters">
           <div class="col">
-            <button onclick="answerSubmitted(1)" id="answer1" class="button">
-                <img src="../../img/triangle.svg" alt="">
+            <button onclick="answerSubmitted(1)" id="answer1" class="button d-flex w-100">
+                <img class="p-4 p-sm-5" src="../../img/triangle.svg" alt="">
             </button>
           </div>
           <div class="col">
-            <button onclick="answerSubmitted(2)" id="answer2" class="button">
-                <img src="../../img/cross.svg" alt="">     
+            <button onclick="answerSubmitted(2)" id="answer2" class="button d-flex w-100 ">
+                <img class="p-4 p-sm-5" src="../../img/cross.svg" alt="">     
             </button>
           </div>
           <div class="w-100"></div>
           <div class="col">
-            <button onclick="answerSubmitted(3)" id="answer3" class="button">
-                <img src="../../img/circle.svg" alt="">
+            <button onclick="answerSubmitted(3)" id="answer3" class="button d-flex w-100">
+                <img class="p-4 p-sm-5" src="../../img/circle.svg" alt="">
             </button>
           </div>
           <div class="col">
-            <button onclick="answerSubmitted(4)" id="answer4" class="button">
-                <img src="../../img/square.svg" alt="">
+            <button onclick="answerSubmitted(4)" id="answer4" class="button d-flex w-100">
+                <img class="p-4 p-sm-5" src="../../img/square.svg" alt="">
             </button>
           </div>
         </div>
