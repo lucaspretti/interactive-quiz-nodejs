@@ -106,7 +106,7 @@ socket.on('startGameFromCreator', function(data){
 
 function randomColor(){
     
-    var colors = ['#4CAF50', '#f94a1e', '#3399ff', '#ff9933'];
+    var colors = ['#40B297', '#E64E2C', '#A3ACD6', '#D494C0'];
     var randomNum = Math.floor(Math.random() * 4);
     return colors[randomNum];
 }

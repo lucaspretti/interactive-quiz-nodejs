@@ -1,18 +1,18 @@
 html, body { height: 90%; padding: 0; margin: 0; }
-button{
+/* button{
     width: 50%; height: 50%; float: left;
-}
+} */
 #answer1{
-    background-color: #4CAF50;
+    background-color: #40B297;
 }
 #answer2{
-    background-color: #f94a1e;
+    background-color: #E64E2C;
 }
 #answer3{
-    background-color: #3399ff;
+    background-color: #A3ACD6;
 }
 #answer4{
-    background-color: #ff9933;
+    background-color: #D494C0;
 }
 
 #buttons{

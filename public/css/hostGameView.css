@@ -1,5 +1,5 @@
 #answer1{
-    background-color: #4CAF50;
+    background-color: #40B297;
     margin: auto;
     padding: 30px 20px;
     height: 50%;
@@ -7,7 +7,7 @@
     font-size: 20px;
 }
 #answer2{
-    background-color: #f94a1e;
+    background-color: #E64E2C;
     margin: auto;
     padding: 30px 20px;
     height: 50%;
@@ -15,7 +15,7 @@
     font-size: 20px;
 }
 #answer3{
-    background-color: #3399ff;
+    background-color: #A3ACD6;
     margin: auto;
     padding: 30px 20px;
     height: 50%;
@@ -23,7 +23,7 @@
     font-size: 20px;
 }
 #answer4{
-    background-color: #ff9933;
+    background-color: #D494C0;
     margin: auto;
     padding: 30px 20px;
     height: 50%;
@@ -44,16 +44,16 @@
 }
 
 #square1{
-    background-color: #4CAF50;
+    background-color: #40B297;
 }
 #square2{
-    background-color: #f94a1e;
+    background-color: #E64E2C;
 }
 #square3{
-    background-color: #3399ff;
+    background-color: #A3ACD6;
 }
 #square4{
-    background-color: #ff9933;
+    background-color: #D494C0;
 }
 
 #nextQButton{
@@ -108,6 +108,6 @@
     text-align: center;
     font-family: 'Raleway', sans-serif;
     font-size: 35px;
-    color: #3399ff;
+    color: #A3ACD6;
     display: none;
 }
