@@ -1,5 +1,5 @@
 # Interactive Quiz NodeJS
-<h3>INSTRUCTIONS:</h3>
+## INSTRUCTIONS:
 <ol>
   <li>Install MongoDB: 'Sudo apt-get install mongodb'</li>
   <li>Start MongoDB: 'Sudo service mongodb start'</li>
@@ -11,7 +11,7 @@
 <h5>This project is a kahoot clone that uses nodejs and mongodb</h5>
 <h5>Multiple games can be ongoing at one time and works with many players per game</h5>
 
-## TODO 
+## TODO - Roadmap
 
 - [x] Add bootstrap 4
 - [x] Delete Quizes
@@ -25,7 +25,10 @@
 - [ ] Change Timer seconds per question
 
 
-<h3>Screen Shots:</h3>
+----
+
+## Screen Shots:
+
 <img src="Screenshots/join.png" height="200" width="auto" alt="Player Join"/>
 <img src="Screenshots/hostJoin.png" height="200" width="auto" alt="Host Lobby"/>
 <img src="Screenshots/player.png" height="200" width="auto" alt="Player"/>
