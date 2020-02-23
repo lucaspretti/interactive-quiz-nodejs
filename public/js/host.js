@@ -24,7 +24,6 @@ socket.on('updatePlayerLobby', function(data){
     for(var i = 0; i < data.length; i++){
         var playersCardDeck = document.getElementById('players'); 
 
-
         var playerCard = `<div class="col mb-3">
                             <div class="card h-100">
                             <img src="https://api.adorable.io/avatars/300/${data[i].name}.png" class="card-img-top" alt="...">
@@ -33,8 +32,6 @@ socket.on('updatePlayerLobby', function(data){
                             </div>
                             </div>
                         </div>`;
-
-                        
 
 
         playersCardDeck.insertAdjacentHTML('afterbegin', playerCard );
