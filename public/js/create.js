@@ -17,38 +17,40 @@ socket.on('gameNamesData', function (data) {
 
     for (const key in data) {
         if (data.hasOwnProperty(key)) {
-            const element = data[key];
+            // const element = data[key];
             // console.log(element);
+            // const questionsNumber =  data[key].questions.length;
+
+            // console.log(questionsNumber);
+            
+
             var playersCardDeck = document.getElementById('game-list');
 
             var gameListItem = `
-                        <div class="col-12 col-lg-4 mb-4 ">
-                            <div class="card text-center">
-                            <div class="card-header">
-                                Featured
+                <div class="col-12 col-lg-4 mb-4 ">
+                    <div class="card text-center">
+                        <div class="card-body pt-2">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small>${data[key].questions.length} Questions</small>
                                 <a href="#" 
-                                  type="button" data-toggle="modal" data-target="#deleteQuizModal"
+                                    type="button" data-toggle="modal" data-target="#deleteQuizModal"
                                     class="close"  
                                     data-quiz-id="${data[key].id}"
                                     data-quiz-title="${data[key].name}"
                                     aria-label="Delete">
                                     <span aria-hidden="true">&times;</span>
-                                </a>
+                                </a>        
                             </div>
-                            <div class="card-body">
-                            <div class="d-flex w-100 justify-content-between">
-                                <small>3 days ago</small>
-                            </div>
-                                <h5 class="card-title">${data[key].name}</h5>
-                                <p class="card-text">${data[key].description}</p>
-                                <a href="#" onclick="startGame('${data[key].id}')" class="btn btn-primary">Start Quiz</a>
-                            </div>
-                            <div class="card-footer text-muted">
-                                2 days ago
-                            </div>
-                            </div>  
+                            <h5 class="card-title">${data[key].name}</h5>
+                            <p class="card-text">${data[key].description}</p>
+                            <a href="#" onclick="startGame('${data[key].id}')" class="btn btn-primary">Start Quiz</a>
                         </div>
-                        `
+                        <div class="card-footer text-muted">
+                            2 days ago
+                        </div>
+                    </div>  
+                </div>
+                `
 
             playersCardDeck.insertAdjacentHTML('afterbegin', gameListItem); 
             // console.log(i);
