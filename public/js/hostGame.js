@@ -139,6 +139,8 @@ function updateTimer(){
         }
     }, 1000);
 }
+
+
 socket.on('GameOver', function(data){
     document.getElementById('nextQButton').style.display = "none";
     document.getElementById('square1').style.display = "none";

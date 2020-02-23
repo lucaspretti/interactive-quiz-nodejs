@@ -12,17 +12,17 @@
         <link rel="stylesheet" href = "../css/create.css">
     </head>
 
-    <body class="d-flex flex-column justify-content-center vh-100">
+    <body class="min-vh-100 container">
 
         <a id = "back"href = "../">Back</a>
         <h1 id = "title">Start a Kahoot Game</h1>
         <h4 id = "subtitle" class="align-middle d-flex flex-wrap justify-content-center align-items-center"> Choose a Game Below or 
             <a class="btn btn-outline-light btn-lg ml-2" id = "link" href = "quiz-creator/">Create your Own!</a>
         </h4>
-        <div id = "game-list">
+
+        <div id = "game-list" class="row mt-4 align-items-center">
             
         </div>
-        
         
         <script src = "../socket.io/socket.io.js"></script>
         <script src = "../js/create.js"></script>

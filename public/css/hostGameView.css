@@ -24,11 +24,9 @@
     transition: filter 0.5s ease-in-out;
 }
 
-
 .wrongAnswer { 
     filter: grayscale(80%) blur(10px);
 }
-
 
 .square{
     border: none;
