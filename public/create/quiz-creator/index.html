@@ -2,40 +2,44 @@
 <html>
     <head>
         <title>Creator | KahootClone</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel = "stylesheet" href = "../css/fa-all.css">
         <link rel = "stylesheet" href = "../../css/quizCreator.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     </head>
-    <body onload = "setBGColor()">
-        <h1 id = "title">Kahoot Quiz Creator Studio</h1>
-        
-        <div class="form-field">
-            <label id = "quizTitle">Quiz Title</label>
-            <input id = "name" type = "text" name="name" autofocus/>
-        </div>
-        <br>
-        <br>
-        <div id = "allQuestions">
-            <div id="question-field">
-                <label>Question 1: </label>
-                <input class = "question" id = "q1" type = "text" autofocus/>
-                <br>
-                <br>
-                <label>Answer 1: </label>
-                <input id = "1a1" type = "text" autofocus/>
-                <label>Answer 2: </label>
-                <input id = "1a2" type = "text" autofocus/>
-                <br>
-                <br>
-                <label>Answer 3: </label>
-                <input id = "1a3"  type = "text"autofocus/>
-                <label>Answer 4: </label>
-                <input id = "1a4"  type = "text" autofocus/>
-                <br>
-                <br>
-                <label>Correct Answer (1-4) :</label>
-                <input class = "correct" id = "correct1"  type = "number" autofocus/>
+    <body class="min-vh-100 container" >
+        <h1 id = "title">Quiz Creator Studio</h1>
+         <div class="form-group">
+            <div class="form-field">
+                <label id = "quizTitle">Quiz Title</label>
+                <input id = "name" type = "text" name="name" autofocus/>
             </div>
-        </div>
+            <div id = "allQuestions">
+                <div id="question-field">
+                    <label>Question 1: </label>
+                    <input class = "question" id = "q1" type = "text" autofocus/>
+                    <br>
+                    <br>
+                    <label>Answer 1: </label>
+                    <input id = "1a1" type = "text" autofocus/>
+                    <label>Answer 2: </label>
+                    <input id = "1a2" type = "text" autofocus/>
+                    <br>
+                    <br>
+                    <label>Answer 3: </label>
+                    <input id = "1a3"  type = "text"autofocus/>
+                    <label>Answer 4: </label>
+                    <input id = "1a4"  type = "text" autofocus/>
+                    <br>
+                    <br>
+                    <label>Correct Answer (1-4) :</label>
+                    <input class = "correct" id = "correct1"  type = "number" autofocus/>
+                </div>
+            </div>
+
+         </div>
+
         <br>
         <button onclick = "addQuestion()">Add another question</button>
         
@@ -49,7 +53,10 @@
         <br>
         
         <button onclick = 'cancelQuiz()'>Cancel quiz and return to quiz selection</button>
-        
+
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         <script src = "../../socket.io/socket.io.js"></script>
         <script src = "../../js/quizCreator.js"></script>
     </body>

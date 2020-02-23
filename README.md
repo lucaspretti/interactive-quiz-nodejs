@@ -17,3 +17,15 @@
 <img src="Screenshots/questionResults.png" height="200" width="auto" alt="Question Results"/>
 <img src="Screenshots/hostQuestion.png" height="200" width="auto" alt="Host Question"/>
 <img src="Screenshots/incorrect.png" height="200" width="auto" alt="Player Results"/>
+
+
+TODO 
+
+Delete Quizes
+Edit Quizes (only creation and deletion is possible)
+Copy Quiz
+Add embedded video on question
+Disable points based in timer
+Quiz Templates 
+Change Timer seconds per quiz
+Change Timer seconds per question
