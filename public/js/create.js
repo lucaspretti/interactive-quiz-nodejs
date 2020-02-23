@@ -28,7 +28,7 @@ socket.on('gameNamesData', function (data) {
 
             var gameListItem = `
                 <div class="col-12 col-lg-4 mb-4 ">
-                    <div class="card text-center">
+                    <div class="card text-center h-100">
                         <div class="card-body pt-2">
                             <div class="d-flex justify-content-between align-items-center">
                                 <small>${data[key].questions.length} Questions</small>
@@ -41,12 +41,9 @@ socket.on('gameNamesData', function (data) {
                                     <span aria-hidden="true">&times;</span>
                                 </a>        
                             </div>
-                            <h5 class="card-title">${data[key].name}</h5>
+                            <h5 class="card-title mt-2">${data[key].name}</h5>
                             <p class="card-text">${data[key].description}</p>
                             <a href="#" onclick="startGame('${data[key].id}')" class="btn btn-primary">Start Quiz</a>
-                        </div>
-                        <div class="card-footer text-muted">
-                            2 days ago
                         </div>
                     </div>  
                 </div>
@@ -87,3 +84,6 @@ $('#deleteQuizModal').on('show.bs.modal', function (event) {
     modal.find('#deleteQuizFinalBtn').attr('onClick', 'deleteQuizFromDB(' + quizId + ')');
     // modal.find('.modal-body input').val(recipient)
   })
+
+
+
