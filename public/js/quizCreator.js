@@ -116,10 +116,3 @@ function setBGColor(){
     document.getElementById('question-field').style.backgroundColor = randColor;
 }
 
-
-
-
-
-
-
-
