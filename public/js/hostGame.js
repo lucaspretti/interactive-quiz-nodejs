@@ -45,27 +45,27 @@ socket.on('questionOver', function(playerData, correct){
     
     //Shows user correct answer with effects on elements
     if(correct == 1){
-        document.getElementById('answer2').style.filter = "grayscale(50%)";
-        document.getElementById('answer3').style.filter = "grayscale(50%)";
-        document.getElementById('answer4').style.filter = "grayscale(50%)";
+        document.getElementById('answer2').classList.add("wrongAnswer");
+        document.getElementById('answer3').classList.add("wrongAnswer");
+        document.getElementById('answer4').classList.add("wrongAnswer");
         var current = document.getElementById('answer1').innerHTML;
         document.getElementById('answer1').innerHTML = "&#10004" + " " + current;
     }else if(correct == 2){
-        document.getElementById('answer1').style.filter = "grayscale(50%)";
-        document.getElementById('answer3').style.filter = "grayscale(50%)";
-        document.getElementById('answer4').style.filter = "grayscale(50%)";
+        document.getElementById('answer1').classList.add("wrongAnswer");
+        document.getElementById('answer3').classList.add("wrongAnswer");
+        document.getElementById('answer4').classList.add("wrongAnswer");
         var current = document.getElementById('answer2').innerHTML;
         document.getElementById('answer2').innerHTML = "&#10004" + " " + current;
     }else if(correct == 3){
-        document.getElementById('answer1').style.filter = "grayscale(50%)";
-        document.getElementById('answer2').style.filter = "grayscale(50%)";
-        document.getElementById('answer4').style.filter = "grayscale(50%)";
+        document.getElementById('answer1').classList.add("wrongAnswer");
+        document.getElementById('answer2').classList.add("wrongAnswer");
+        document.getElementById('answer4').classList.add("wrongAnswer");
         var current = document.getElementById('answer3').innerHTML;
         document.getElementById('answer3').innerHTML = "&#10004" + " " + current;
     }else if(correct == 4){
-        document.getElementById('answer1').style.filter = "grayscale(50%)";
-        document.getElementById('answer2').style.filter = "grayscale(50%)";
-        document.getElementById('answer3').style.filter = "grayscale(50%)";
+        document.getElementById('answer1').classList.add("wrongAnswer");
+        document.getElementById('answer2').classList.add("wrongAnswer");
+        document.getElementById('answer3').classList.add("wrongAnswer");
         var current = document.getElementById('answer4').innerHTML;
         document.getElementById('answer4').innerHTML = "&#10004" + " " + current;
     }
@@ -105,15 +105,23 @@ socket.on('questionOver', function(playerData, correct){
 
 function nextQuestion(){
     document.getElementById('nextQButton').style.display = "none";
+
+
+
     document.getElementById('square1').style.display = "none";
     document.getElementById('square2').style.display = "none";
     document.getElementById('square3').style.display = "none";
     document.getElementById('square4').style.display = "none";
     
-    document.getElementById('answer1').style.filter = "none";
-    document.getElementById('answer2').style.filter = "none";
-    document.getElementById('answer3').style.filter = "none";
-    document.getElementById('answer4').style.filter = "none";
+    // document.getElementById('answer1').style.filter = "none";
+    // document.getElementById('answer2').style.filter = "none";
+    // document.getElementById('answer3').style.filter = "none";
+    // document.getElementById('answer4').style.filter = "none";
+    
+    document.getElementById('answer1').classList.remove("wrongAnswer");
+    document.getElementById('answer2').classList.remove("wrongAnswer");
+    document.getElementById('answer3').classList.remove("wrongAnswer");
+    document.getElementById('answer4').classList.remove("wrongAnswer");
     
     document.getElementById('playersAnswered').style.display = "block";
     document.getElementById('timerText').style.display = "block";

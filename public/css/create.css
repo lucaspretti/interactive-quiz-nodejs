@@ -38,11 +38,11 @@ body {
 #subtitle{
     color: white;
     text-align: center;
-    font-size: 20px;
+    /* font-size: 20px; */
     font-family: 'Raleway', sans-serif;
 }
 #link{
-    color: white;
+    /* color: white; */
 }
 #game-list{
     text-align: center;
