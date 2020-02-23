@@ -21,7 +21,6 @@ var mongoose = require('mongoose');
 var url = "mongodb://localhost:27017/";
 
 
-
 app.use(express.static(publicPath));
 
 //Starting server on port 3000
@@ -451,7 +450,7 @@ io.on('connection', (socket) => {
                 db.close();
             });
         });
-        
+
     });
     
     
@@ -484,20 +483,6 @@ io.on('connection', (socket) => {
 
 
     socket.on('deleteQuiz', function(data){
-        // MongoClient.connect(url, function(err, db) {
-        //     if (err) throw err;
-        //     var dbo = db.db("kahootDB");
-        //     var myquery = { name: '5' };
-        //     dbo.collection("kahootGames").deleteOne(myquery, function(err, obj) {
-        //         if (err) throw err;
-        //         console.log("1 document deleted");
-        //         console.log("data is :");
-        //         console.log(data);
-        //         console.log(myquery);
-        //         db.close();
-        //     });
-        // });
-
 
         MongoClient.connect(url, function(err, db) {
             if (err) {
@@ -530,30 +515,6 @@ io.on('connection', (socket) => {
                 db.close();
             }
         });
-
-
-        // MongoClient.connect(url, function(err, db){
-        //     if (err) throw err;
-        //     var dbo = db.db('kahootDB');
-        //     dbo.collection('kahootGames').find({}).toArray(function(err, result){
-        //         if(err) throw err;
-        //         var num = Object.keys(result).length;
-        //         if(num == 0){
-        //         	data.id = 1
-        //         	num = 1
-        //         }else{
-        //         	data.id = result[num -1 ].id + 1;
-        //         }
-        //         var game = data;
-        //         dbo.collection("kahootGames").insertOne(game, function(err, res) {
-        //             if (err) throw err;
-        //             db.close();
-        //         });
-        //         db.close();
-        //         socket.emit('startGameFromCreator', num);
-        //     });
-            
-        // });
         
         
     });
