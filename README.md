@@ -1,4 +1,4 @@
-# kahoot-clone-nodejs
+# Interactive Quiz NodeJS
 <h3>INSTRUCTIONS:</h3>
 <ol>
   <li>Install MongoDB: 'Sudo apt-get install mongodb'</li>
