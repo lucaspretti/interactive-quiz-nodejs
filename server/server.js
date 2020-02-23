@@ -452,7 +452,6 @@ io.on('connection', (socket) => {
             });
         });
         
-         
     });
     
     
@@ -485,8 +484,6 @@ io.on('connection', (socket) => {
 
 
     socket.on('deleteQuiz', function(data){
-        console.log('acepted');
-        
         // MongoClient.connect(url, function(err, db) {
         //     if (err) throw err;
         //     var dbo = db.db("kahootDB");
@@ -511,12 +508,23 @@ io.on('connection', (socket) => {
                 var myquery = { "id" : data };
                 var collection = dbo.collection('kahootGames');
          
-                collection.deleteOne(
-                    myquery
-                , function(err, results) {
-                    console.log(results.result);
-                    console.log(data);
-                    console.log(myquery);
+                collection.deleteOne(myquery, function(err, results) {
+                    // console.log(results.result);
+                    // console.log(data);
+                    // console.log(myquery);
+                    // socket.emit('requestDbNames');
+
+                    MongoClient.connect(url, function(err, db){
+                        if (err) throw err;
+                
+                        var dbo = db.db('kahootDB');
+                        dbo.collection("kahootGames").find().toArray(function(err, res) {
+                            if (err) throw err;
+                            socket.emit('gameNamesData', res);
+                            db.close();
+                        });
+                    });
+
                 });
          
                 db.close();

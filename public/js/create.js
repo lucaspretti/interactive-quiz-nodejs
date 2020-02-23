@@ -8,6 +8,13 @@ socket.on('gameNamesData', function (data) {
 
     // console.log(data);
 
+    var playersCardDeck = document.getElementById('game-list');
+    // playersCardDeck.innerHTML = "";
+
+    while(playersCardDeck.firstChild){
+        playersCardDeck.removeChild(playersCardDeck.firstChild);
+    }
+
     for (const key in data) {
         if (data.hasOwnProperty(key)) {
             const element = data[key];
@@ -38,7 +45,6 @@ socket.on('gameNamesData', function (data) {
     
             playersCardDeck.insertAdjacentHTML('afterbegin', gameListItem); 
             // console.log(i);
-
 
         }
     }
