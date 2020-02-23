@@ -19,13 +19,15 @@
 <img src="Screenshots/incorrect.png" height="200" width="auto" alt="Player Results"/>
 
 
-TODO 
+## TODO 
 
-Delete Quizes
-Edit Quizes (only creation and deletion is possible)
-Copy Quiz
-Add embedded video on question
-Disable points based in timer
-Quiz Templates 
-Change Timer seconds per quiz
-Change Timer seconds per question
+- [x] Add bootstrap 4
+- [x] Delete Quizes
+- [x] Delete Quizes confirmation modal
+- [ ] Edit Quizes (only creation and deletion is possible)
+- [ ] Copy Quiz
+- [ ] Add embedded video on question
+- [ ] Disable points based in timer
+- [ ] Quiz Templates 
+- [ ] Change Timer seconds per quiz
+- [ ] Change Timer seconds per question
