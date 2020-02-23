@@ -482,5 +482,72 @@ io.on('connection', (socket) => {
         
         
     });
+
+
+    socket.on('deleteQuiz', function(data){
+        console.log('acepted');
+        
+        // MongoClient.connect(url, function(err, db) {
+        //     if (err) throw err;
+        //     var dbo = db.db("kahootDB");
+        //     var myquery = { name: '5' };
+        //     dbo.collection("kahootGames").deleteOne(myquery, function(err, obj) {
+        //         if (err) throw err;
+        //         console.log("1 document deleted");
+        //         console.log("data is :");
+        //         console.log(data);
+        //         console.log(myquery);
+        //         db.close();
+        //     });
+        // });
+
+
+        MongoClient.connect(url, function(err, db) {
+            if (err) {
+                console.log('Sorry unable to connect to MongoDB Error:', err);
+            } else {
+                data = parseInt(data);
+                var dbo = db.db("kahootDB");
+                var myquery = { "id" : data };
+                var collection = dbo.collection('kahootGames');
+         
+                collection.deleteOne(
+                    myquery
+                , function(err, results) {
+                    console.log(results.result);
+                    console.log(data);
+                    console.log(myquery);
+                });
+         
+                db.close();
+            }
+        });
+
+
+        // MongoClient.connect(url, function(err, db){
+        //     if (err) throw err;
+        //     var dbo = db.db('kahootDB');
+        //     dbo.collection('kahootGames').find({}).toArray(function(err, result){
+        //         if(err) throw err;
+        //         var num = Object.keys(result).length;
+        //         if(num == 0){
+        //         	data.id = 1
+        //         	num = 1
+        //         }else{
+        //         	data.id = result[num -1 ].id + 1;
+        //         }
+        //         var game = data;
+        //         dbo.collection("kahootGames").insertOne(game, function(err, res) {
+        //             if (err) throw err;
+        //             db.close();
+        //         });
+        //         db.close();
+        //         socket.emit('startGameFromCreator', num);
+        //     });
+            
+        // });
+        
+        
+    });
     
 });

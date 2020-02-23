@@ -27,7 +27,7 @@ socket.on('gameNamesData', function (data) {
                                 <h5 class="card-title">${data[key].name}</h5>
                                 <p class="card-text">${data[key].description}</p>
                                 <a href="#" onclick="startGame('${data[key].id}')" class="btn btn-primary">Start Quiz</a>
-                                <a href="#" onclick="startGame('${data[key].id}')" class="btn btn-danger">Delete Quiz</a>
+                                <a href="#" onclick="deleteQuizFromDB('${data[key].id}')" class="btn btn-danger">Delete Quiz</a>
                             </div>
                             <div class="card-footer text-muted">
                                 2 days ago
@@ -93,4 +93,11 @@ function startGame(data) {
     window.location.href = "/host/" + "?id=" + data;
 }
 
+
+
+function deleteQuizFromDB(quiz) {
+    console.log('QUIZ ID :' + quiz);
+    
+    socket.emit('deleteQuiz', quiz);
+}
 
