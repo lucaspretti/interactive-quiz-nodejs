@@ -447,18 +447,71 @@ io.on('connection', (socket) => {
             dbo.collection("kahootGames").find().toArray(function(err, res) {
                 if (err) throw err;
                 socket.emit('gameNamesData', res);
+                // console.log(res);
+                
                 db.close();
             });
         });
 
     });
     
+
+
+    //Give user game names data
+    socket.on('requestQuizQuestions', function(){
+    
+        MongoClient.connect(url, function(err, db){
+            if (err) throw err;
+    
+            var dbo = db.db('kahootDB');
+
+            // TODO  GET CURRENT ID TO PASS TO QUERY
+
+            var query = { id:  parseInt(49)};
+            dbo.collection("kahootGames").find(query).toArray(function(err, res) {
+                if (err) throw err;
+                socket.emit('gameQuestionData', res);
+                // console.log(res);
+                db.close();
+            });
+        });
+
+    });
+    
+        
+
     
     socket.on('newQuiz', function(data){
         MongoClient.connect(url, function(err, db){
             if (err) throw err;
             var dbo = db.db('kahootDB');
-            dbo.collection('kahootGames').find({}).toArray(function(err, result){
+            dbo.collection('kahootGames').find().toArray(function(err, result){
+                if(err) throw err;
+                var num = Object.keys(result).length;
+                if(num == 0){
+                	data.id = 1
+                	num = 1
+                }else{
+                	data.id = result[num -1 ].id + 1;
+                }
+                var game = data;
+                dbo.collection("kahootGames").insertOne(game, function(err, res) {
+                    if (err) throw err;
+                    db.close();
+                });
+                db.close();
+                // socket.emit('startGameFromCreator', num);
+            });
+            
+        });
+        
+    });
+
+    socket.on('editQuiz', function(data){
+        MongoClient.connect(url, function(err, db){
+            if (err) throw err;
+            var dbo = db.db('kahootDB');
+            dbo.collection('kahootGames').find().toArray(function(err, result){
                 if(err) throw err;
                 var num = Object.keys(result).length;
                 if(num == 0){
@@ -478,10 +531,11 @@ io.on('connection', (socket) => {
             
         });
         
-        
     });
 
 
+
+    
     socket.on('deleteQuiz', function(data){
 
         MongoClient.connect(url, function(err, db) {
