@@ -43,7 +43,7 @@ socket.on('gameNamesData', function (data) {
                             <h5 class="card-title mt-2">${data[key].name}</h5>
                             <p class="card-text">${data[key].description}</p>
                             <a href="#" onclick="startGame('${data[key].id}')" class="btn btn-primary">Start Quiz</a>
-                            <a href="quiz-editor/?id=${data[key].id}" class="btn btn-primary">Edit Quiz</a>
+                            <a href="quiz-editor/?id=${data[key].id}" class="btn btn-secondary"><i class="fas fa-edit"></i></i></a>
                         </div>
                     </div>  
                 </div>
