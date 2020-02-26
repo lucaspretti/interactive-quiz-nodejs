@@ -17,7 +17,7 @@
 - [x] Delete Quizes
 - [x] Delete Quizes confirmation modal
 - [x] Edit Quizes (only creation and deletion is possible)
-- [ ] Copy Quiz
+- [ ] Duplicate Quiz
 - [ ] Add embedded video on question
 - [ ] Disable points based in timer
 - [ ] Quiz Templates 
