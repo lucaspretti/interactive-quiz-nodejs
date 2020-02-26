@@ -16,7 +16,7 @@
 - [x] Add bootstrap 4
 - [x] Delete Quizes
 - [x] Delete Quizes confirmation modal
-- [x] Edit Quizes (only creation and deletion is possible)
+- [x] Edit Quizes
 - [ ] Duplicate Quiz
 - [ ] Add embedded video on question
 - [ ] Disable points based in timer
