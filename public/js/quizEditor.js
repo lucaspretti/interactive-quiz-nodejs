@@ -1,12 +1,16 @@
 var socket = io();
 
+var params = jQuery.deparam(window.location.search);
+
+console.log(params);
+
+
 socket.on('connect', function () {
-    socket.emit('requestQuizQuestions');//Get database names to display to user
+
+    socket.emit('requestQuizQuestions', params);//Get database names to display to user
 });
 
 socket.on('gameQuestionData', function (data) {
-
-    // console.log(data);
 
     var questionsTemplate = '<form class="w-100" ><div class="form-group">';
 
@@ -22,7 +26,12 @@ socket.on('gameQuestionData', function (data) {
         if (data.hasOwnProperty(key)) {
             // const element = data[key];
             const questions = data[key].questions;
-            // console.log(element);
+
+            let quizName = document.getElementById('name').value = data[key].name;
+            let quizDescription= document.getElementById('description').value = data[key].description;
+
+            // console.log(data[key].name);
+            // console.log(data[key].description);
             // const questionsNumber =  data[key].questions.length;
             // console.log(questionsNumber);
 
@@ -103,10 +112,11 @@ function updateQuestionsinDatabase(){
         questions.push({"question": question, "answers": answers, "correct": correct})
     }
     
-    var quiz = {id: 0, "name": name, "description" : description,  "questions": questions};
+    var quiz = {id: params.id, "name": name, "description" : description,  "questions": questions};
+    
+    socket.emit('deleteQuiz', params.id);
     socket.emit('editQuiz', quiz);
 }
-
 
 
 function addQuestion(){

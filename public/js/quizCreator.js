@@ -17,6 +17,7 @@ function updateDatabase(){
     }
     
     var quiz = {id: 0, "name": name, "description" : description,  "questions": questions};
+    
     socket.emit('newQuiz', quiz);
 }
 

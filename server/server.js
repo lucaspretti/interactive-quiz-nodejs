@@ -457,8 +457,14 @@ io.on('connection', (socket) => {
     
 
 
-    //Give user game names data
-    socket.on('requestQuizQuestions', function(){
+    //Give user game names data 
+// 
+    // socket.on('host-join', (data) =>{
+
+
+    socket.on('requestQuizQuestions', function(data){
+
+        // console.log(data);
     
         MongoClient.connect(url, function(err, db){
             if (err) throw err;
@@ -467,7 +473,7 @@ io.on('connection', (socket) => {
 
             // TODO  GET CURRENT ID TO PASS TO QUERY
 
-            var query = { id:  parseInt(49)};
+            var query = { id:  parseInt(data.id)};
             dbo.collection("kahootGames").find(query).toArray(function(err, res) {
                 if (err) throw err;
                 socket.emit('gameQuestionData', res);
@@ -517,8 +523,9 @@ io.on('connection', (socket) => {
                 if(num == 0){
                 	data.id = 1
                 	num = 1
-                }else{
-                	data.id = result[num -1 ].id + 1;
+                }
+                else{
+                	data.id = parseInt(data.id);
                 }
                 var game = data;
                 dbo.collection("kahootGames").insertOne(game, function(err, res) {

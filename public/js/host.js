@@ -1,6 +1,9 @@
 var socket = io();
 var params = jQuery.deparam(window.location.search);
 
+console.log(params);
+
+
 //When host connects to server
 socket.on('connect', function() {
 
