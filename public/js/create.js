@@ -36,7 +36,7 @@ socket.on('gameNamesData', function (data) {
                                 <a href="#" 
                                     type="button" data-toggle="modal" data-target="#deleteQuizModal"
                                     class="close"  
-                                    data-quiz-id="${data[key]._id}"
+                                    data-quiz-id="${data[key].id}"
                                     data-quiz-title="${data[key].name}"
                                     aria-label="Delete">
                                     <span aria-hidden="true">&times;</span>
@@ -44,8 +44,8 @@ socket.on('gameNamesData', function (data) {
                             </div>
                             <h5 class="card-title mt-2">${data[key].name}</h5>
                             <p class="card-text">${data[key].description}</p>
-                            <a href="#" onclick="startGame('${data[key]._id}')" class="btn btn-primary">Start Quiz</a>
-                            <a href="quiz-editor/?_id=${data[key]._id}" class="btn btn-secondary"><i class="fas fa-edit"></i></i></a>
+                            <a href="#" onclick="startGame('${data[key].id}')" class="btn btn-primary">Start Quiz</a>
+                            <a href="quiz-editor/?_id=${data[key].id}" class="btn btn-secondary"><i class="fas fa-edit"></i></i></a>
                         </div>
                     </div>  
                 </div>
