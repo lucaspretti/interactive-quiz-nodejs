@@ -21,9 +21,11 @@
 - [ ] Add embedded video on question
 - [ ] Disable points based in timer
 - [ ] Quiz Templates 
-- [ ] Change Timer seconds per quiz
-- [ ] Change Timer seconds per question
-
+- [ ] Option to Change Timer seconds per quiz
+- [ ] Option to Change Timer seconds per question
+- [ ] Points decreasing with Timer
+- [ ] Option to Disable Points decreasing with Timer per quiz
+- [ ] Option to Disable Points decreasing with Timer per question
 
 ----
 

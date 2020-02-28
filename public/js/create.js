@@ -6,7 +6,9 @@ socket.on('connect', function () {
 
 socket.on('gameNamesData', function (data) {
 
-    // console.log(data);
+    console.log(data);
+
+    // ObjectId("507c7f79bcf86cd7994f6c0e").toString()
 
     var playersCardDeck = document.getElementById('game-list');
     // playersCardDeck.innerHTML = "";
@@ -34,7 +36,7 @@ socket.on('gameNamesData', function (data) {
                                 <a href="#" 
                                     type="button" data-toggle="modal" data-target="#deleteQuizModal"
                                     class="close"  
-                                    data-quiz-id="${data[key].id}"
+                                    data-quiz-id="${data[key]._id}"
                                     data-quiz-title="${data[key].name}"
                                     aria-label="Delete">
                                     <span aria-hidden="true">&times;</span>
@@ -42,8 +44,8 @@ socket.on('gameNamesData', function (data) {
                             </div>
                             <h5 class="card-title mt-2">${data[key].name}</h5>
                             <p class="card-text">${data[key].description}</p>
-                            <a href="#" onclick="startGame('${data[key].id}')" class="btn btn-primary">Start Quiz</a>
-                            <a href="quiz-editor/?id=${data[key].id}" class="btn btn-secondary"><i class="fas fa-edit"></i></i></a>
+                            <a href="#" onclick="startGame('${data[key]._id}')" class="btn btn-primary">Start Quiz</a>
+                            <a href="quiz-editor/?_id=${data[key]._id}" class="btn btn-secondary"><i class="fas fa-edit"></i></i></a>
                         </div>
                     </div>  
                 </div>

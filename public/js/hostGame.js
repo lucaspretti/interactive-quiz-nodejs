@@ -18,6 +18,8 @@ socket.on('noGameFound', function(){
 });
 
 socket.on('gameQuestions', function(data){
+    console.log(data);
+    
     document.getElementById('question').innerHTML = data.q1;
     document.getElementById('answer1').innerHTML = data.a1;
     document.getElementById('answer2').innerHTML = data.a2;
@@ -25,7 +27,17 @@ socket.on('gameQuestions', function(data){
     document.getElementById('answer4').innerHTML = data.a4;
     var correctAnswer = data.correct;
     document.getElementById('playersAnswered').innerHTML = "Players Answered 0 / " + data.playersInGame;
-    updateTimer();
+
+    var timer =  data.options.timer;  
+    console.log(timer);
+    
+
+    if ( timer ) {
+        updateTimer();
+    } else {
+        document.getElementById('timerText').style.display = "none";
+    }
+    
 });
 
 socket.on('updatePlayersAnswered', function(data){

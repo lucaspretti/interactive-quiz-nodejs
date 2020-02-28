@@ -2,19 +2,69 @@ var socket = io();
 
 var params = jQuery.deparam(window.location.search);
 
-console.log(params);
+var paramId = params._id;
 
+// console.log(params);
+
+var questionNumber = 1;
+
+
+var newQuizTemplate = `
+
+<form class="w-100" ><div class="form-group">
+    <label for="question-${questionNumber}" class="text-center d-block questionCounter" >Question ${questionNumber}</label>
+    <input type="text" class="form-control" id="question-${questionNumber}" aria-describedby="emailHelp" value="" >
+    <small id="emailHelp" class="form-text text-muted">Edit the question</small>
+
+    <label for="question-${questionNumber}" class=" text-center d-block" >Answer 1</label>
+    <input type="text" class="form-control" id="question-${questionNumber}-answer-1"  aria-describedby="emailHelp" value="" >
+    <small id="emailHelp" class="form-text text-muted">Edit the question</small>
+    <label for="question-${questionNumber}" class=" text-center d-block" >Answer 2</label>
+    <input type="text" class="form-control" id="question-${questionNumber}-answer-2"  aria-describedby="emailHelp" value="" >
+    <small id="emailHelp" class="form-text text-muted">Edit the question</small>
+    <label for="question-${questionNumber}" class=" text-center d-block" >Answer 3</label>
+    <input type="text" class="form-control" id="question-${questionNumber}-answer-3"  aria-describedby="emailHelp" value="" >
+    <small id="emailHelp" class="form-text text-muted">Edit the question</small>
+    <label for="question-${questionNumber}" class=" text-center d-block" >Answer 4</label>
+    <input type="text" class="form-control" id="question-${questionNumber}-answer-4"  aria-describedby="emailHelp" value="" >
+    <small id="emailHelp" class="form-text text-muted">Edit the question</small>
+    
+    <label for="question-${questionNumber}-correct" class="text-center d-block" >Question ${questionNumber} Correct</label>
+    <input type="number" class="form-control" id="question-${questionNumber}-correct" aria-describedby="emailHelp" value="" >
+    <small id="emailHelp" class="form-text text-muted">Edit the question</small> 
+    </div></form>`
+
+
+
+var questionList = document.getElementById('questions-list');
 
 socket.on('connect', function () {
 
-    socket.emit('requestQuizQuestions', params);//Get database names to display to user
+    if (paramId == undefined) {
+
+        paramId = 0;
+
+        console.log(paramId);
+        
+        
+        console.log('new quiz');
+
+        questionList.insertAdjacentHTML('afterbegin', newQuizTemplate); 
+        
+    } else {
+        // console.log(params);
+        
+        socket.emit('requestQuizQuestions', params);//Get database names to display to user       
+    }
+
+ 
 });
 
 socket.on('gameQuestionData', function (data) {
 
     var questionsTemplate = '<form class="w-100" ><div class="form-group">';
 
-    var questionList = document.getElementById('questions-list');
+    
     // playersCardDeck.innerHTML = "";
 
     // Clean table after 
@@ -29,8 +79,28 @@ socket.on('gameQuestionData', function (data) {
 
             let quizName = document.getElementById('name').value = data[key].name;
             let quizDescription= document.getElementById('description').value = data[key].description;
+            
+            
+            // OPTIONS
 
-            // console.log(data[key].name);
+            let timerOption = data[key].options.timer;
+            let timerSwitch = document.getElementById('timerOption');
+
+
+            let decreasePointsSwitch = document.getElementById('decreasePoints');
+            let decreasePointsOptions = data[key].options.decreasePoints;
+           
+            if (timerOption) {
+                timerSwitch.checked = true;
+            }
+
+            if (decreasePointsOptions) {
+                decreasePointsSwitch.checked = true;
+            }
+            
+            // console.log(data[key].options);
+
+
             // console.log(data[key].description);
             // const questionsNumber =  data[key].questions.length;
             // console.log(questionsNumber);
@@ -72,8 +142,7 @@ socket.on('gameQuestionData', function (data) {
                         `
                     }
 
-                    questionsTemplate += `
-                    
+                    questionsTemplate += `                    
                     <label for="question-${questionNumber}-correct" class="text-center d-block" >Question ${questionNumber} Correct</label>
                     <input type="number" class="form-control" id="question-${questionNumber}-correct" aria-describedby="emailHelp" value="${questionObject.correct}" >
                     <small id="emailHelp" class="form-text text-muted">Edit the question</small>`
@@ -111,8 +180,20 @@ function updateQuestionsinDatabase(){
         var answers = [answer1, answer2, answer3, answer4];
         questions.push({"question": question, "answers": answers, "correct": correct})
     }
+
+
+    let timerSwitch = document.getElementById('timerOption');
+    let decreasePointsSwitch = document.getElementById('decreasePoints');
+
+
+    var options = {
+        timer : timerSwitch.checked, 
+        decreasePoints : decreasePointsSwitch.checked
+    }
     
-    var quiz = {id: params.id, "name": name, "description" : description,  "questions": questions};
+    console.log(options);
+    
+    var quiz = {id: paramId, "name": name, "description" : description,  "questions": questions, "options" : options};
     
     socket.emit('deleteQuiz', params.id);
     socket.emit('editQuiz', quiz);
