@@ -22,28 +22,26 @@ var io = socketIO(server);
 var games = new LiveGames();
 var players = new Players();
 
-//Mongodb setup
-var ObjectId  = require('mongodb');
 
 var MongoClient = require('mongodb').MongoClient;
 var mongoose = require('mongoose');
 var url = "mongodb://localhost:27017/";
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  // we're connected!
-  console.log("we're connected!");
+// var db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function() {
+//   // we're connected!
+//   console.log("we're connected!");
   
-});
+// });
 
 
 
 app.use(express.static(publicPath));
 
 //Starting server on port 3000
-server.listen(3000, () => {
-    console.log("Server started on port 3000");
+server.listen(3001, () => {
+    console.log("Server started on port 3001");
 });
 
 //When a connection to server is made from client
